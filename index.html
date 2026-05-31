@@ -119,7 +119,38 @@ h1{
         transform:translateY(-150px);
     }
 }
+.final-envelope{
+    background:#fff0f6;
+    border:2px dashed #ff7cab;
+    border-radius:20px;
+    padding:20px;
+    margin-top:30px;
+    cursor:pointer;
+    transition:.3s;
+}
 
+.final-envelope:hover{
+    transform:scale(1.02);
+}
+
+.final-title{
+    font-size:1.2rem;
+    font-weight:bold;
+}
+
+.final-content{
+    display:none;
+    margin-top:15px;
+}
+
+.final-envelope.open .final-title{
+    display:none;
+}
+
+.final-envelope.open .final-content{
+    display:block;
+}
+    
 </style>
 </head>
 <body>
@@ -265,9 +296,51 @@ Open each envelope to revisit a memory ❤️
 
         <br><br>
 
-        I can't wait to fill many more envelopes with you. 
-        And there is one more I have for you! Click here! 
+        I can't wait to fill many more envelopes with you.
     </p>
+
+    <div class="final-envelope" onclick="openFinalEnvelope(this)">
+
+        <div class="final-title">
+            💌 Our Future
+        </div>
+
+        <div class="final-content">
+
+            <img src="month5/photo.jpg" class="photo">
+
+            <div class="message">
+
+                <p><strong>The Next Chapter ❤️</strong></p>
+
+                <br>
+
+                <p>
+                    Put your final message here.
+                </p>
+
+                <br>
+
+                <p>
+                    This can be about everything you're looking
+                    forward to together:
+                </p>
+
+                <br>
+
+                <p>
+                    More trips.<br>
+                    More memories.<br>
+                    More sunsets.<br>
+                    More laughs.<br>
+                    More us.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
