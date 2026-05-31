@@ -1,218 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>One Month With You ❤️</title>
+
+<title>One Month ❤️</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
-}
-
 body{
+    margin:0;
     min-height:100vh;
-    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#ffb6c1,#ffd6e8);
     display:flex;
-    justify-content:center;
+    flex-direction:column;
     align-items:center;
-    overflow:hidden;
     color:white;
-}
-
-.container{
-    max-width:800px;
-    text-align:center;
-    padding:40px;
-    z-index:2;
 }
 
 h1{
-    font-size:3rem;
-    margin-bottom:10px;
+    margin-top:40px;
 }
 
 .subtitle{
-    font-size:1.2rem;
     margin-bottom:30px;
 }
 
-.card{
-    background:rgba(255,255,255,0.15);
-    backdrop-filter:blur(10px);
-    border-radius:20px;
-    padding:30px;
-    box-shadow:0 8px 30px rgba(0,0,0,0.2);
+.grid{
+    width:90%;
+    max-width:900px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
 }
 
-.counter{
-    font-size:2rem;
-    margin:20px 0;
+.card{
+    background:white;
+    color:#ff5e95;
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    cursor:pointer;
+    transition:.3s;
+    min-height:140px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     font-weight:bold;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+.card:hover{
+    transform:translateY(-5px);
 }
 
 .message{
-    line-height:1.8;
-    font-size:1.1rem;
+    display:none;
+    font-weight:normal;
+    line-height:1.6;
 }
 
-.highlight{
-    color:#fff4b5;
-    font-weight:bold;
+.open{
+    background:#fff7fb;
 }
 
-.heart{
-    position:absolute;
-    color:white;
-    font-size:20px;
-    animation:float 8s linear infinite;
-    opacity:0.7;
+.open .title{
+    display:none;
 }
 
-@keyframes float{
-    from{
-        transform:translateY(100vh);
-        opacity:0;
-    }
-    10%{
-        opacity:0.8;
-    }
-    to{
-        transform:translateY(-120px);
-        opacity:0;
-    }
-}
-
-button{
-    margin-top:25px;
-    border:none;
-    padding:12px 25px;
-    border-radius:30px;
-    cursor:pointer;
-    background:white;
-    color:#ff6b81;
-    font-weight:bold;
-    transition:0.3s;
-}
-
-button:hover{
-    transform:scale(1.05);
-}
-
-#loveMessage{
-    margin-top:20px;
-    font-size:1.1rem;
-    min-height:50px;
+.open .message{
+    display:block;
 }
 </style>
 </head>
 <body>
 
-<div class="container">
+<h1>💖 One Month With You 💖</h1>
+<p class="subtitle">Open the envelopes ❤️</p>
 
-    <h1>❤️ One Month With You ❤️</h1>
+<div class="grid">
 
-    <p class="subtitle">
-        Distance may separate us, but my heart is always with you.
-    </p>
-
-    <div class="card">
-
-        <h2>We've Been Together For</h2>
-
-        <div class="counter" id="counter"></div>
-
-        <div class="message">
-            One month ago, we started something special.
-
-            <br><br>
-
-            Even with miles between us, you've become one of the best parts of my day.
-
-            <br><br>
-
-            Every message.
-            Every call.
-            Every laugh.
-
-            <br><br>
-
-            They all remind me how lucky I am to have you.
-
-            <br><br>
-
-            <span class="highlight">
-                Thank you for making long distance feel a little less far.
-            </span>
-        </div>
-
-        <button onclick="showLoveNote()">
-            Click Me ❤️
-        </button>
-
-        <div id="loveMessage"></div>
-
+<div class="card" onclick="openLetter(this)">
+    <div class="title">💌 Open When You Miss Me</div>
+    <div class="message">
+        Even if we're miles apart right now,
+        I hope you remember that there's someone
+        thinking about you constantly.
+        ❤️
     </div>
+</div>
+
+<div class="card" onclick="openLetter(this)">
+    <div class="title">💌 Open When You Need a Smile</div>
+    <div class="message">
+        My favorite thing is making you laugh.
+        So here's your reminder:
+        you're ridiculously cute.
+        🥰
+    </div>
+</div>
+
+<div class="card" onclick="openLetter(this)">
+    <div class="title">💌 Open When You Want To Remember Us</div>
+    <div class="message">
+        Remember when we stayed up way too late
+        because neither of us wanted to say goodnight?
+        That's still one of my favorite memories.
+        🌙
+    </div>
+</div>
+
+<div class="card" onclick="openLetter(this)">
+    <div class="title">💌 Open When You Need A Reminder</div>
+    <div class="message">
+        You are loved.
+        You are appreciated.
+        And I'm really lucky to have you.
+        ❤️
+    </div>
+</div>
+
+<div class="card" onclick="openLetter(this)">
+    <div class="title">💌 Open When You're Curious</div>
+    <div class="message">
+        One month with you has already given me
+        more smiles than I can count.
+        And I'm excited for all the months ahead.
+        ✨
+    </div>
+</div>
+
+<div class="card" id="secret">
+    <div class="title">🔒 Secret Envelope</div>
+    <div class="message">
+        Congratulations ❤️
+
+        You found the secret message.
+
+        If I could be anywhere right now,
+        I'd be with you.
+    </div>
+</div>
 
 </div>
 
 <script>
 
-// CHANGE THIS DATE
-const anniversaryStart = new Date("2025-05-30");
+let opened = 0;
 
-function updateCounter() {
-    const now = new Date();
+function openLetter(card){
 
-    const diff = now - anniversaryStart;
+    if(card.classList.contains("open")) return;
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    card.classList.add("open");
+    opened++;
 
-    document.getElementById("counter").innerHTML =
-        `${days} Days Together ✨`;
+    if(opened === 5){
+        document.getElementById("secret")
+            .onclick = function(){
+                this.classList.add("open");
+            };
+
+        document.getElementById("secret")
+            .style.cursor = "pointer";
+    }
 }
-
-updateCounter();
-
-const notes = [
-    "You're my favorite notification ❤️",
-    "Every mile is worth it because it's you 💕",
-    "Thank you for every late-night call 🌙",
-    "You're my favorite part of every day ☀️",
-    "Distance is temporary, us is forever ❤️",
-    "One month down, forever to go 🥰"
-];
-
-function showLoveNote(){
-    const random =
-        notes[Math.floor(Math.random() * notes.length)];
-
-    document.getElementById("loveMessage").innerHTML = random;
-}
-
-// Floating hearts
-function createHeart(){
-    const heart = document.createElement("div");
-
-    heart.classList.add("heart");
-    heart.innerHTML = "❤️";
-
-    heart.style.left = Math.random() * window.innerWidth + "px";
-    heart.style.fontSize = (15 + Math.random()*25) + "px";
-    heart.style.animationDuration = (5 + Math.random()*5) + "s";
-
-    document.body.appendChild(heart);
-
-    setTimeout(()=>{
-        heart.remove();
-    },10000);
-}
-
-setInterval(createHeart,300);
-
 </script>
 
 </body>
