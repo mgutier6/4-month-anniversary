@@ -1,170 +1,332 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>One Month ❤️</title>
+<title>Our Memory Vault ❤️</title>
 
 <style>
-body{
+
+*{
     margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#ffb6c1,#ffdbe7);
     min-height:100vh;
-    font-family:Arial,sans-serif;
-    background:linear-gradient(135deg,#ffb6c1,#ffd6e8);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
     color:white;
+    text-align:center;
+    padding:40px 20px;
 }
 
 h1{
-    margin-top:40px;
+    margin-bottom:10px;
+    font-size:3rem;
 }
 
 .subtitle{
-    margin-bottom:30px;
+    margin-bottom:40px;
+    opacity:.9;
 }
 
 .grid{
-    width:90%;
-    max-width:900px;
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:20px;
+    max-width:1100px;
+    margin:auto;
 }
 
-.card{
+.envelope{
     background:white;
-    color:#ff5e95;
+    color:#ff4f8b;
     border-radius:20px;
     padding:30px;
-    text-align:center;
     cursor:pointer;
+    min-height:180px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
     transition:.3s;
-    min-height:140px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:bold;
-    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    position:relative;
+    overflow:hidden;
 }
 
-.card:hover{
+.envelope:hover:not(.locked){
     transform:translateY(-5px);
 }
 
-.message{
-    display:none;
-    font-weight:normal;
-    line-height:1.6;
+.locked{
+    opacity:.5;
+    cursor:not-allowed;
 }
 
-.open{
-    background:#fff7fb;
+.content{
+    display:none;
 }
 
 .open .title{
     display:none;
 }
 
-.open .message{
+.open .content{
     display:block;
 }
+
+.photo{
+    width:100%;
+    border-radius:15px;
+    margin-bottom:15px;
+    max-height:300px;
+    object-fit:cover;
+}
+
+.message{
+    line-height:1.6;
+}
+
+.secret{
+    max-width:700px;
+    margin:40px auto;
+    background:white;
+    color:#ff4f8b;
+    padding:40px;
+    border-radius:25px;
+    display:none;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.secret h2{
+    margin-bottom:20px;
+}
+
+.heart{
+    position:fixed;
+    pointer-events:none;
+    font-size:20px;
+    animation:float 4s linear forwards;
+}
+
+@keyframes float{
+    from{
+        opacity:1;
+        transform:translateY(0);
+    }
+    to{
+        opacity:0;
+        transform:translateY(-150px);
+    }
+}
+
 </style>
 </head>
 <body>
 
-<h1>💖 One Month With You 💖</h1>
-<p class="subtitle">Open the envelopes ❤️</p>
+<h1>💖 Our Memory Vault 💖</h1>
+
+<p class="subtitle">
+Open each envelope to revisit a memory ❤️
+</p>
 
 <div class="grid">
 
-<div class="card" onclick="openLetter(this)">
-    <div class="title">💌 Open When You Miss Me</div>
-    <div class="message">
-        Even if we're miles apart right now,
-        I hope you remember that there's someone
-        thinking about you constantly.
-        ❤️
+    <!-- Envelope 1 -->
+
+    <div class="envelope" onclick="openEnvelope(0)">
+        <div class="title">
+            💌 Memory #1
+        </div>
+
+        <div class="content">
+            <img src="month0/photo.jpg" class="photo">
+
+            <div class="message">
+                Put your first message here.
+                This could be about how you met,
+                your first conversation,
+                or your first favorite memory.
+            </div>
+        </div>
     </div>
+
+    <!-- Envelope 2 -->
+
+    <div class="envelope locked" onclick="openEnvelope(1)">
+        <div class="title">
+            🔒 Memory #2
+        </div>
+
+        <div class="content">
+            <img src="month1/photo.jpg" class="photo">
+
+            <div class="message">
+                Put your second memory here.
+            </div>
+        </div>
+    </div>
+
+    <!-- Envelope 3 -->
+
+    <div class="envelope locked" onclick="openEnvelope(2)">
+        <div class="title">
+            🔒 Memory #3
+        </div>
+
+        <div class="content">
+            <img src="month2/photo.jpg" class="photo">
+
+            <div class="message">
+                Put your third memory here.
+            </div>
+        </div>
+    </div>
+
+    <!-- Envelope 4 -->
+
+    <div class="envelope locked" onclick="openEnvelope(3)">
+        <div class="title">
+            🔒 Memory #4
+        </div>
+
+        <div class="content">
+            <img src="month3/photo.jpg" class="photo">
+
+            <div class="message">
+                Put your fourth memory here.
+            </div>
+        </div>
+    </div>
+
+    <!-- Envelope 5 -->
+
+    <div class="envelope locked" onclick="openEnvelope(4)">
+        <div class="title">
+            🔒 Memory #5
+        </div>
+
+        <div class="content">
+            <img src="month4/photo.jpg" class="photo">
+
+            <div class="message">
+                Put your fifth memory here.
+            </div>
+        </div>
+    </div>
+
 </div>
 
-<div class="card" onclick="openLetter(this)">
-    <div class="title">💌 Open When You Need a Smile</div>
-    <div class="message">
-        My favorite thing is making you laugh.
-        So here's your reminder:
-        you're ridiculously cute.
-        🥰
-    </div>
-</div>
+<div class="secret" id="secretLetter">
 
-<div class="card" onclick="openLetter(this)">
-    <div class="title">💌 Open When You Want To Remember Us</div>
-    <div class="message">
-        Remember when we stayed up way too late
-        because neither of us wanted to say goodnight?
-        That's still one of my favorite memories.
-        🌙
-    </div>
-</div>
+    <h2>❤️ Secret Letter ❤️</h2>
 
-<div class="card" onclick="openLetter(this)">
-    <div class="title">💌 Open When You Need A Reminder</div>
-    <div class="message">
-        You are loved.
-        You are appreciated.
-        And I'm really lucky to have you.
-        ❤️
-    </div>
-</div>
+    <p style="line-height:1.8;">
+        Every memory here is only a tiny piece
+        of everything we've shared together.
 
-<div class="card" onclick="openLetter(this)">
-    <div class="title">💌 Open When You're Curious</div>
-    <div class="message">
-        One month with you has already given me
-        more smiles than I can count.
-        And I'm excited for all the months ahead.
-        ✨
-    </div>
-</div>
+        <br><br>
 
-<div class="card" id="secret">
-    <div class="title">🔒 Secret Envelope</div>
-    <div class="message">
-        Congratulations ❤️
+        I wanted each memory to have its own envelope
+        because every moment with you deserves to be saved.
 
-        You found the secret message.
+        <br><br>
 
-        If I could be anywhere right now,
-        I'd be with you.
-    </div>
-</div>
+        Even though we're far apart,
+        you've become one of my favorite parts of every day.
+
+        <br><br>
+
+        Thank you for every call,
+        every laugh,
+        every late-night conversation,
+        and every moment we've shared.
+
+        <br><br>
+
+        Happy One Month Anniversary ❤️
+
+        <br><br>
+
+        I can't wait to fill many more envelopes with you.
+    </p>
 
 </div>
 
 <script>
 
-let opened = 0;
+const envelopes =
+document.querySelectorAll('.envelope');
 
-function openLetter(card){
+let highestUnlocked = 0;
+let openedCount = 0;
 
-    if(card.classList.contains("open")) return;
+function openEnvelope(index){
 
-    card.classList.add("open");
-    opened++;
+    const envelope = envelopes[index];
 
-    if(opened === 5){
-        document.getElementById("secret")
-            .onclick = function(){
-                this.classList.add("open");
-            };
+    if(index > highestUnlocked) return;
 
-        document.getElementById("secret")
-            .style.cursor = "pointer";
+    if(envelope.classList.contains('open'))
+        return;
+
+    envelope.classList.remove('locked');
+    envelope.classList.add('open');
+
+    openedCount++;
+
+    createHearts();
+
+    if(index + 1 < envelopes.length){
+
+        envelopes[index + 1]
+            .classList.remove('locked');
+
+        highestUnlocked = index + 1;
+    }
+
+    if(openedCount === 5){
+
+        setTimeout(() => {
+
+            document
+              .getElementById("secretLetter")
+              .style.display = "block";
+
+            document
+              .getElementById("secretLetter")
+              .scrollIntoView({
+                  behavior:"smooth"
+              });
+
+        },800);
     }
 }
+
+function createHearts(){
+
+    for(let i=0;i<12;i++){
+
+        const heart =
+        document.createElement("div");
+
+        heart.classList.add("heart");
+
+        heart.innerHTML = "❤️";
+
+        heart.style.left =
+            Math.random()*window.innerWidth + "px";
+
+        heart.style.bottom = "0px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{
+            heart.remove();
+        },4000);
+    }
+}
+
 </script>
 
 </body>
